@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Age and Color Analyzer</title>
+  <style>
+    .teen-blue { color: blue; font-weight: bold; }
+    .young-artist { color: purple; font-style: italic; }
+    .adult { color: green; font-weight: bold; }
+    .default { color: gray; }
+    body { font-family: Arial, sans-serif; margin: 2em; }
+  </style>
+</head>
+<body>
+  <script>
+    // Ask for user input
+    let age = prompt("How old are you? ");
+    let color = prompt("What is your favorite color? ");
+
+    // Convert age to number and color to lowercase for comparison
+    age = parseInt(age, 10);
+    color = color ? color.trim().toLowerCase() : "";
+
+    let message = "";
+    let cssClass = "default";
+
+    if (age >= 13 && age <= 19 && color === "blue") {
+      message = "Teen Blue Fan!";
+      cssClass = "teen-blue";
+      alert(message);
+    } else if (age < 13 && color !== "black") {
+      message = "Young Artist";
+      cssClass = "young-artist";
+      alert(message);
+    } else if (age > 19) {
+      message = "Welcome, Adult!";
+      cssClass = "adult";
+      alert(message);
+    } else {
+      message = "Hello there!";
+      alert(message);
+    }
+
+    // Display the result on the page with styling
+    document.write(`<h2 class="${cssClass}">${message}</h2>`);
+  </script>
+</body>
+</html> 
